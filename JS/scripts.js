@@ -57,6 +57,16 @@ boxes.forEach(box =>{
 });
 
 
+const highlightBoxes = (indexes, winner) => {
+  const bgColor = winner === 'O' ? 'bg-red-200' : 'bg-green-200';
+
+  indexes.forEach(i => {
+    boxes[i].classList.add(bgColor, 'scale-110');
+  });
+};
+
+
+
 const resetGame = () =>{
     turnO = true;
     enabledBoxes();
@@ -69,6 +79,7 @@ const enabledBoxes = () =>{
     for(let box of boxes){
         box.disabled = false;
         box.innerText = '';
+        box.classList.remove('bg-red-200', 'bg-green-200', 'scale-110');
     }
 }
 
@@ -79,12 +90,13 @@ const disabledBoxes = () =>{
     }
 }
 
-const showWinner = (winner) =>{
+const showWinner = (winner, winningIndexes) =>{
     let winnerTextColor = winner === 'O' ? "text-red-800" : "text-green-800"
       winningMsg.innerHTML = `
             <p class='text-5xl lg:text-7xl font-bold mb-4'>Congratulations</p>
              <p class='text-5xl font-semibold'>Winner is <span class='text-6xl font-bold ${winnerTextColor} bg-white px-3 rounded-2xl'>${winner}</span></p>                 
       `;
+       highlightBoxes(winningIndexes, winner); // ✅ pass winner
       winningMsgSec.classList.remove('hidden');
       disabledBoxes();
 }
@@ -93,13 +105,14 @@ const showWinner = (winner) =>{
 
 const checkWinner = () =>{
     for(let pattern of winPatterns){
+         let [a, b, c] = pattern;
         let pos1 = boxes[pattern[0]].innerText;
         let pos2 = boxes[pattern[1]].innerText;
         let pos3 = boxes[pattern[2]].innerText;
         
         if(pos1 != '' && pos2 != '' && pos3 != ''){
             if(pos1 === pos2 && pos2 === pos3){
-                showWinner(pos1);
+                showWinner(pos1, [a, b, c]);
             }
         }
     }
