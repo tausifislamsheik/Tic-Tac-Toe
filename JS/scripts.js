@@ -4,15 +4,15 @@ const mainContainer = () =>{
     div.classList = 'mx-auto w-90 h-90 gap-3 grid grid-cols-3 text-white'
     div.innerHTML = `
         
-        <button class='box h-28 text-6xl font-bold text-red-800 rounded-xl border-none bg-[#fefae0] cursor-pointer'></button>
-        <button class='box h-28 text-6xl font-bold text-red-800 rounded-xl border-none bg-[#fefae0] cursor-pointer'></button>
-        <button class='box h-28 text-6xl font-bold text-red-800 rounded-xl border-none bg-[#fefae0] cursor-pointer'></button>
-        <button class='box h-28 text-6xl font-bold text-red-800 rounded-xl border-none bg-[#fefae0] cursor-pointer'></button>
-        <button class='box h-28 text-6xl font-bold text-red-800 rounded-xl border-none bg-[#fefae0] cursor-pointer'></button>
-        <button class='box h-28 text-6xl font-bold text-red-800 rounded-xl border-none bg-[#fefae0] cursor-pointer'></button>
-        <button class='box h-28 text-6xl font-bold text-red-800 rounded-xl border-none bg-[#fefae0] cursor-pointer'></button>
-        <button class='box h-28 text-6xl font-bold text-red-800 rounded-xl border-none bg-[#fefae0] cursor-pointer'></button>
-        <button class='box h-28 text-6xl font-bold text-red-800 rounded-xl border-none bg-[#fefae0] cursor-pointer'></button>
+        <button class='box h-28 text-6xl font-bold rounded-xl border-none bg-[#fefae0] cursor-pointer'></button>
+        <button class='box h-28 text-6xl font-bold rounded-xl border-none bg-[#fefae0] cursor-pointer'></button>
+        <button class='box h-28 text-6xl font-bold rounded-xl border-none bg-[#fefae0] cursor-pointer'></button>
+        <button class='box h-28 text-6xl font-bold rounded-xl border-none bg-[#fefae0] cursor-pointer'></button>
+        <button class='box h-28 text-6xl font-bold rounded-xl border-none bg-[#fefae0] cursor-pointer'></button>
+        <button class='box h-28 text-6xl font-bold rounded-xl border-none bg-[#fefae0] cursor-pointer'></button>
+        <button class='box h-28 text-6xl font-bold rounded-xl border-none bg-[#fefae0] cursor-pointer'></button>
+        <button class='box h-28 text-6xl font-bold rounded-xl border-none bg-[#fefae0] cursor-pointer'></button>
+        <button class='box h-28 text-6xl font-bold rounded-xl border-none bg-[#fefae0] cursor-pointer'></button>
     `;
     container.appendChild(div);
 };
@@ -43,9 +43,11 @@ boxes.forEach(box =>{
     box.addEventListener('click', () =>{
         if(turnO){
             box.innerText ='O'
+            box.classList.add('text-red-800')
             turnO = false;
         }else{
             box.innerText = 'X'
+            box.classList.add('text-green-800')
             turnO = true
         }
         box.disabled = true; 
@@ -78,9 +80,10 @@ const disabledBoxes = () =>{
 }
 
 const showWinner = (winner) =>{
+    let winnerTextColor = winner === 'O' ? "text-red-800" : "text-green-800"
       winningMsg.innerHTML = `
             <p class='text-5xl lg:text-7xl font-bold mb-4'>Congratulations</p>
-             <p class='text-5xl font-semibold'>Winner is <span class='text-6xl font-bold text-red-700 bg-white px-3 rounded-2xl'>${winner}</span></p>                 
+             <p class='text-5xl font-semibold'>Winner is <span class='text-6xl font-bold ${winnerTextColor} bg-white px-3 rounded-2xl'>${winner}</span></p>                 
       `;
       winningMsgSec.classList.remove('hidden');
       disabledBoxes();
