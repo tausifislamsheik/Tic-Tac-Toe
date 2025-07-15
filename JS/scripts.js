@@ -79,7 +79,7 @@ const disabledBoxes = () =>{
 
 const showWinner = (winner) =>{
       winningMsg.innerHTML = `
-            <p class='text-7xl font-bold mb-4'>Congratulations</p>
+            <p class='text-5xl lg:text-7xl font-bold mb-4'>Congratulations</p>
              <p class='text-5xl font-semibold'>Winner is <span class='text-6xl font-bold text-red-700 bg-white px-3 rounded-2xl'>${winner}</span></p>                 
       `;
       winningMsgSec.classList.remove('hidden');
