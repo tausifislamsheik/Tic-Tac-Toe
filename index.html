@@ -12,14 +12,18 @@
      <!-- favicon -->
       <link rel="shortcut icon" href="images/tic-tac-toe.png" type="image/x-icon">
 </head>
-<body class="h-screen bg-[#2f184b]">
-    <header>
+<body >
+    <main class="bg-[#2f184b]">
+        <section id="winning-msg-sec" class="text-center hidden h-screen items-center justify-center flex flex-col">
+            <p id="winning-msg" class="text-6xl text-white mb-10"></p>
+            <button id="game-btn" class="btn text-xl bg-white px-7 py-6 rounded-lg font-semibold">New Game</button>
+        </section>
+
         <h1 class="text-center text-5xl font-semibold pt-10 text-white">Tic Tac Toe</h1>
-    </header>
-    <main>
+
         <section id="main-container" class="mt-20"></section>
         <section class="text-center mt-12">
-            <button id="reset-btn" class="btn text-xl bg-white px-7 py-6 rounded-lg font-semibold">Reset</button>
+            <button id="reset-btn" class="btn text-xl bg-white px-7 py-6 rounded-lg font-semibold mb-28">Reset</button>
         </section>
     </main>
 </body>
