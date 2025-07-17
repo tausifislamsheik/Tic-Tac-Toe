@@ -119,11 +119,11 @@ const drawWinningLine = (indexes) => {
 const showWinner = (winner, indexes) => {
   const winnerColor = winner === 'O' ? 'text-red-800' : 'text-green-800';
   const winnerName = winner === 'O' ? 'You win!' : 'Computer win';
-  const congras = winner === 'O' ? 'Congratulations' : '';
+  const congratulations = winner === 'O' ? 'Congratulations' : '';
 
   winningMsg.innerHTML = `
        🎉
-    <p class='text-5xl lg:text-7xl font-bold mb-7'>${congras}</p>
+    <p class='text-5xl lg:text-7xl font-bold mb-7'>${congratulations}</p>
     <p class='text-5xl font-semibold'>
       ${winnerName} 
       <span class='text-6xl font-bold ${winnerColor} bg-white px-3 rounded-2xl'>
