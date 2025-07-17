@@ -12,7 +12,7 @@ const mainContainer = () => {
         <button class='box h-28 text-6xl font-bold rounded-xl border-none bg-[#fefae0] cursor-pointer'></button>
         <button class='box h-28 text-6xl font-bold rounded-xl border-none bg-[#fefae0] cursor-pointer'></button>
         <button class='box h-28 text-6xl font-bold rounded-xl border-none bg-[#fefae0] cursor-pointer'></button>
-        <div id="win-line" class="absolute h-2 bg-yellow-400 rounded-full transition-all duration-500 ease-in-out origin-left scale-x-0"></div>
+         <div id="win-line" class="absolute h-2 bg-yellow-400 rounded-full transition-all duration-500 ease-in-out origin-left scale-x-0"></div>
     `;
     container.appendChild(div);
 };
@@ -141,7 +141,7 @@ const showWinner = (winner, indexes) => {
 
 const showDraw = () => {
   winningMsg.innerHTML = `
-    <p class='text-5xl lg:text-6xl font-bold mb-4'>Match was Draw!</p>
+    <p class='text-5xl lg:text-5xl font-bold mb-4'>Match was Draw!</p>
     <p class='text-3xl font-medium text-yellow-300'>Try again 🔁</p>
   `;
   winningMsgSec.classList.remove('hidden');
