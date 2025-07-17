@@ -118,11 +118,14 @@ const drawWinningLine = (indexes) => {
 
 const showWinner = (winner, indexes) => {
   const winnerColor = winner === 'O' ? 'text-red-800' : 'text-green-800';
+  const winnerName = winner === 'O' ? 'You win!' : 'Computer win';
+  const congras = winner === 'O' ? 'Congratulations' : '';
 
   winningMsg.innerHTML = `
-    <p class='text-5xl lg:text-7xl font-bold mb-4'>Congratulations</p>
+       🎉
+    <p class='text-5xl lg:text-7xl font-bold mb-7'>${congras}</p>
     <p class='text-5xl font-semibold'>
-      Winner is 
+      ${winnerName} 
       <span class='text-6xl font-bold ${winnerColor} bg-white px-3 rounded-2xl'>
         ${winner}
       </span>
@@ -138,7 +141,7 @@ const showWinner = (winner, indexes) => {
 
 const showDraw = () => {
   winningMsg.innerHTML = `
-    <p class='text-5xl lg:text-7xl font-bold mb-4'>It's a Draw!</p>
+    <p class='text-5xl lg:text-6xl font-bold mb-4'>Match was Draw!</p>
     <p class='text-3xl font-medium text-yellow-300'>Try again 🔁</p>
   `;
   winningMsgSec.classList.remove('hidden');
